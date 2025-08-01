@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>General-OCR</title>
+    <!-- Favicon standard sizes -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+    <link rel="shortcut icon" href="/images/favicon.ico"><!-- old IE -->
+
+    <!-- Optional: iOS / Android -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="app.css">
+
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="http://localhost:8000/" class="logo"><img src="/images/polyread_brandname.png" alt=""
+                    width="150px"></a>
+
+            <div>
+                <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+                    <svg class="theme-icon" id="themeIcon" viewBox="0 0 24 24">
+                        <path
+                            d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+    <!-- Main Content -->
+    <main id="root" class="main-content">
+
+        <section id="grid" class="hidden"></section> <!-- placeholder so app.js doesn’t crash -->
+        <div id="hero" class="hidden"></div>
+
+
+        <div id="langSelectContainer" class="lang-select">
+            <label for="langSelect">🌐 Select Language (optional):</label>
+            <select id="langSelect">
+                <option value="">Auto Detect</option>
+                <option value="en">English</option>
+                <option value="ch">Chinese</option>
+                <option value="japan">Japanese</option>
+                <option value="hi">Hindi</option>
+            </select>
+        </div>
+
+
+
+        <!-- 1. Drop zone (hidden by default) -->
+        <div id="dropZone" class="drop-zone hidden">
+            <p>Drag & Drop an image here</p>
+            <input type="file" id="fileInput" accept="image/*" class="hidden" />
+            <button id="chooseFileBtn" class="btn-upload">Select a file</button> <img id="imgPreview"
+                class="hidden preview-img" alt="Image preview"> <button id="uploadBtn" class="hidden">Submit</button>
+        </div>
+
+        <!-- 2. Result container (hidden by default) -->
+        <div id="resultContainer" class="hidden">
+            <!-- raw model output -->
+            <section class="output-section">
+                <h2>Model Output</h2>
+                <div id="rawOutput" class="output-box" contenteditable="false"></div>
+                <button data-copy="#rawOutput">Copy</button>
+                <button data-download="#rawOutput" data-filename="output.txt">Download</button>
+            </section>
+
+            <!-- OCR Output Preview -->
+            <section id="previewSection" class="preview-section hidden">
+                <div class="preview-container">
+                    <div class="image-box">
+                        <img id="outlinedImage" alt="Detected Output" />
+                    </div>
+                    <div class="text-lines-box" id="lineOutputs"></div>
+                </div>
+            </section>
+
+
+            <!-- translate controls -->
+            <section class="translate-section">
+                <button id="translateBtn">Translate</button>
+
+                <div class="translate-result hidden" id="translateResultWrap">
+                    <div id="translatedOutput" class="output-box"></div>
+                    <button data-copy="#translatedOutput" class="ctrl-btn">Copy</button>
+                    <button data-download="#translatedOutput" data-filename="translated.txt"
+                        class="ctrl-btn">Download</button>
+                </div>
+            </section>
+
+
+
+            <!-- TTS controls -->
+            <section id="ttsSection" class="tts-section hidden">
+                <button id="ttsBtn">Generate Speech</button>
+                <audio id="ttsAudio" controls class="hidden"></audio>
+            </section>
+
+            <button id="backBtn">Back to Models</button>
+        </div>
+
+
+        <!-- About Section -->
+        <div class="about-section">
+            <div class="about-content">
+                <h3>About This Page</h3>
+                <p>
+                    PolyOCR is a unified platform built to simplify and enhance multilingual text extraction from
+                    images. Our vision is to create accessible, intelligent tools that bridge the gap between complex Al
+                    technologies and real-world usability. This web interface represents our first step-combining OCR,
+                    translation, and text-to-speech into a seamless, user-friendly pipeline. Designed with a clean dark
+                    theme and responsive layout, it ensures a smooth experience across devices while offering
+                    interactive components and future-ready modularity.
+                </p>
+            </div>
+        </div>
+
+
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p><img src="/images/polyread_brandname.png" alt="" width="60px"> Built with HTML, CSS, and JavaScript.
+        </p>
+    </footer>
+    
+    <!-- 🔄 Loading overlay (add before </body>) -->
+    <div id="loadingOverlay" class="hidden">
+        <div class="loading-spinner"></div>
+        <p>Processing image, please wait…</p>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
