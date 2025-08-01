@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PolyRead</title>
+    <!-- Favicon standard sizes -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+    <link rel="shortcut icon" href="/images/favicon.ico"><!-- old IE -->
+
+    <!-- Optional: iOS / Android -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="app.css">
+
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo"><img src="/images/polyread_brandname.png" alt=""
+                    width="150px"></a>
+
+            <div>
+                <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+                    <svg class="theme-icon" id="themeIcon" viewBox="0 0 24 24">
+                        <path
+                            d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+    <!-- Main Content -->
+    <main id="root" class="main-content">
+        <!-- Hero Section -->
+        <div class="hero">
+            <h1>Welcome to PolyRead</h1>
+            <p>Explore our three featured models below. Click on any section to interact with it.</p>
+        </div>
+
+        <!-- Three Clickable Divs -->
+        <div id="tileGrid" class="grid">
+            <!-- First Clickable Div -->
+            <article class="clickable-section" data-target="http://localhost:8001/">
+                <h3 class="section-title">General OCR</h3>
+                <p class="section-text">
+                    A versatile OCR pipeline built using PaddleOCR (PP-OCRv4), ideal for extracting multilingual text
+                    from natural scenes, documents, posters, signs, and more. Supports curved, skewed, noisy, and
+                    low-resolution text regions, with robust bounding box detection and text recognition. Best suited
+                    for general-purpose use across scripts and layouts.
+                </p>
+                <span class="section-badge badge-blue">Click to Use</span>
+            </article>
+
+            <!-- Second Clickable Div -->
+            <article class="clickable-section" data-target="http://localhost:8002/">
+                <h3 class="section-title">Structure OCR</h3>
+                <p class="section-text">
+                    Designed to handle tabular data, forms. and structured layouts with accuracy and format
+                    preservation. This module is yet to be initiated and will be integrated in the next phase of
+                    development
+                </p>
+                <span class="section-badge badge-green">Click to Use</span>
+            </article>
+        </div>
+
+        <!-- About Section -->
+        <div class="about-section">
+            <div class="about-content">
+                <h3>About This Page</h3>
+                <p>
+                    PolyOCR is a unified platform built to simplify and enhance multilingual text extraction from
+                    images. Our vision is to create accessible, intelligent tools that bridge the gap between complex Al
+                    technologies and real-world usability. This web interface represents our first step-combining OCR,
+                    translation, and text-to-speech into a seamless, user-friendly pipeline. Designed with a clean dark
+                    theme and responsive layout, it ensures a smooth experience across devices while offering
+                    interactive components and future-ready modularity.
+                </p>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p><img src="/images/polyread_brandname.png" alt="" width="60px"> Built with HTML, CSS, and JavaScript.
+        </p>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
